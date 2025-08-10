@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase"
+import { sign } from "crypto";
 
 
 export const authRepository = {
@@ -11,8 +12,8 @@ export const authRepository = {
 
         if (error !== null || !data.user) throw new Error(error?.message);
 
-        
-        return{
+
+        return {
             ...data.user,
             userName: data.user?.user_metadata
         }
@@ -23,9 +24,7 @@ export const authRepository = {
             email,
             password,
         });
-
         if (error !== null || !data.user) throw new Error(error?.message);
-
         return {
             ...data.user,
             userName: data.user?.user_metadata
@@ -33,12 +32,18 @@ export const authRepository = {
     },
 
     async getCurrentUser() {
-        const {data, error} = await supabase.auth.getSession()
-        if(error != null) throw new Error(error.message);
-        if(data.session == null) return;
+        const { data, error } = await supabase.auth.getSession()
+        if (error != null) throw new Error(error.message);
+        if (data.session == null) return;
         return {
             ...data.session.user,
             userName: data.session.user.user_metadata,
         }
+    },
+
+    async signout() {
+        const { error } = await supabase.auth.signOut();
+        if (error != null) throw new Error(error.message);
+        return true;
     }
 }

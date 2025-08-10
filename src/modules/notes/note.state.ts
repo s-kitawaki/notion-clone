@@ -24,11 +24,26 @@ export const useNoteStore = () => {
             return Object.values(uniqueNotes);
         });
     };
+
+    const deleteNote = (id: number) => {
+        const findChildrenIds = (parentId: number): number[] => {
+            const childrenIds = notes.filter((note) => note.parent_document == parentId)
+                .map((child) => child.id);
+            return childrenIds.concat(
+                ...childrenIds.map(childId => findChildrenIds(childId))
+            )
+        };
+        const childrenIds = findChildrenIds(id);
+        setNotes((oldNotes) => oldNotes.filter(note => ![...childrenIds, id].includes(note.id)));
+    };
     const getOne = (id: number) => notes.find((note) => note.id == id);
+    const clear = () => setNotes([])
 
     return {
         getAll: () => notes,
         set,
-        getOne
+        getOne,
+        delete: deleteNote,
+        clear,
     }
 }
