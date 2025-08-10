@@ -1,6 +1,5 @@
 import { atom, useAtom } from "jotai";
 import { Note } from "./note.entity";
-import { get } from "http";
 
 const noteAtom = atom<Note[]>([]);
 
