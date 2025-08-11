@@ -2,15 +2,27 @@ import { Navigate, Link } from 'react-router-dom';
 import { authRepository } from "@/modules/auth/auth.repository";
 import { useState } from "react";
 import { useCurrentUserStore } from '@/modules/auth/current-user.state';
+import { TriangleAlert } from 'lucide-react';
 
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // エラーメッセージ用の状態
+  const [showPassword, setShowPassword] = useState(false); // パスワード表示用の状態
   const currentUserStore = useCurrentUserStore();
 
     const signin = async () => {
-      const user = await authRepository.signin(email, password);
-      currentUserStore.set(user);
+      setErrorMessage(null); // エラーメッセージをリセット
+      try {
+        const user = await authRepository.signin(email, password);
+        // ログインに成功
+        currentUserStore.set(user);
+      }catch(error: any) {
+        // ログインに失敗
+        console.error("サインイン失敗:", error.message);
+        setErrorMessage("メールアドレスまたはパスワードが正しくありません。"); // エラーメッセージを設定
+
+      }
     };
 
     if(currentUserStore.currentUser != null) return <Navigate replace to="/" />;
@@ -57,11 +69,28 @@ function Signin() {
                     name="password"
                     placeholder="パスワード"
                     required
-                    type="password"
+                    type={showPassword ? "text" : "password"} // チェックボックスの状態に応じて切り替え
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring--500 focus:border--500 sm:text-sm"
                   />
                 </div>
+                <div className="mt-2">
+                  <label className="flex items-center text-sm">
+                    <input
+                      type="checkbox"
+                      className="mr-2"
+                      checked={showPassword}
+                      onChange={(e) => setShowPassword(e.target.checked)} // チェックボックスの状態を更新
+                    />
+                    パスワードを表示
+                  </label>
+                </div>
               </div>
+              {errorMessage && (
+                <div className="text-red-500 text-sm">
+                  <TriangleAlert className="inline-block mr-1" />
+                  {errorMessage}
+                </div> // エラーメッセージを表示
+              )}
               <div>
                 <button 
                   disabled={email === '' || password === ''}
