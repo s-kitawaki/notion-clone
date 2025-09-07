@@ -36,6 +36,10 @@ body,
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    /* 以下、独自定義 */
+    --brand-1: #7c5cff;
+    --brand-2: #00c6ff;
+    --text-color: #1d2330;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -62,6 +66,10 @@ body,
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    /* 以下、独自定義 */
+    --brand-1: #7c5cff;
+    --brand-2: #00c6ff;
+    --text-color: #1d2330;
   }
 }
 

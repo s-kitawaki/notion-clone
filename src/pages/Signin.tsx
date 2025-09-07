@@ -21,7 +21,6 @@ function Signin() {
         // ログインに失敗
         console.error("サインイン失敗:", error.message);
         setErrorMessage("メールアドレスまたはパスワードが正しくありません。"); // エラーメッセージを設定
-
       }
     };
 
@@ -102,6 +101,13 @@ function Signin() {
               <div className="mt-4 text-center text-sm">
                 登録は
                 <Link className="underline" to={'/signup'}>
+                  こちら
+                </Link>
+                から
+              </div>
+              <div className="mt-4 text-center text-sm">
+                前の画面に戻る場合は
+                <Link className="underline" to={'/portfolio'}>
                   こちら
                 </Link>
                 から

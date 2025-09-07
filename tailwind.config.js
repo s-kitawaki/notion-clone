@@ -36,7 +36,8 @@ export default {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
-				border: 'hsl(var(--border))',
+				//border: 'hsl(var(--border))',
+				border: '#e8ecf3',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				chart: {
@@ -45,6 +46,16 @@ export default {
 					'3': 'hsl(var(--chart-3))',
 					'4': 'hsl(var(--chart-4))',
 					'5': 'hsl(var(--chart-5))'
+				},
+				// 以下、独自定義
+				//brand: "#7c5cff",
+				//brand2: "#00c6ff",
+				//textcolor: "#1d2330",
+				brand1: 'var(--brand-1)',
+				brand2: 'var(--brand-2)',
+				textcolor: 'var(--text-color)',
+				backgroundImage: {
+					'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				}
 			},
 			borderRadius: {

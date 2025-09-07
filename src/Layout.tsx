@@ -10,7 +10,7 @@ import { subscribe, unsubscribe } from '@/lib/supabase';
 
 const Layout = () => {
   const navigate = useNavigate();
-  const { currentUser } = useCurrentUserStore();
+  const { currentUser, authStatus } = useCurrentUserStore();
   const noteStore = useNoteStore();
   const [isLoading, setIsLoading] = useState(false);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -54,7 +54,14 @@ const Layout = () => {
     navigate(`/notes/${noteId}`);
     setIsShowModal(false);
   };
-  if(currentUser == null) return <Navigate replace to="/signin" />;
+  // サインアウトされた場合
+  if (authStatus === "signedOut") {
+    return <Navigate replace to="/signin" />;
+  }
+  // 未ログイン（初回アクセスなど）
+  if (authStatus === "unknown" && !currentUser) {
+    return <Navigate replace to="/portfolio" />;
+  }
 
   return (
     <div className="h-full flex">
