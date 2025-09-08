@@ -10,7 +10,7 @@ const AboutMe = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
-                    {/* プロフィール写真エリア (30%) */}
+                    {/* プロフィール写真エリア */}
                     <div className="w-full md:w-1/3 flex justify-center md:justify-start">
                         <img
                             src={myPhoto}
@@ -19,19 +19,19 @@ const AboutMe = () => {
                         />
                     </div>
 
-                    {/* 自己紹介エリア (70%) */}
+                    {/* 自己紹介エリア */}
                     <div className="w-full md:w-2/3">
                         <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                            こんにちは、Shinichi Kitawaki です 👋
+                            こんにちは、北脇 真一 です
                         </h3>
                         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            フロントエンドエンジニアとして React / Vue / TypeScript を中心に
-                            開発を行っています。UI/UX デザインにも関心があり、
-                            モダンで使いやすいインターフェースを作ることを大切にしています。
+                            バックエンドエンジニアとして Java(主にSpring boot) / DB:Postgres を主に使用して
+                            開発を行っています。 モダンなフロントエンドの技術にも関心があり、本画面もReactを使用して
+                            作成しました。
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                            新しい技術を学びながら、ユーザー体験を高める
-                            プロダクトを作ることを目指しています。
+                            趣味は、ドライブ、テニス、野球・バスケ観戦です。<br />
+                            最近は市の代表になったことをきっかけにテニスの試合によく出ています。
                         </p>
                     </div>
                 </div>

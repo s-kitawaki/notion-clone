@@ -14,9 +14,9 @@ function Portfolio() {
         <div className="bg-[#f9fafb]">
             <Header />
             <Title />
-            <AboutMe /> {/* 未実装 */}
+            <AboutMe /> 
             <Projects />
-            <Skills />{/* 未実装 */}
+            <Skills />
             <Footer />
         </div>
     );
