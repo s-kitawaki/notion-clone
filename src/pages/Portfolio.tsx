@@ -5,6 +5,8 @@ import Projects from "../components/Portfolio/Projects";
 import Skills from "../components/Portfolio/Skills";
 import Footer from "../components/Portfolio/Footer";
 
+import Timeline from "@/components/Portfolio/Common/Timeline";
+
 /**
  * Portfolioページコンポーネント
  * @returns Portfolioページコンポーネント
@@ -14,7 +16,8 @@ function Portfolio() {
         <div className="bg-[#f9fafb]">
             <Header />
             <Title />
-            <AboutMe /> 
+            <AboutMe />
+            <Timeline />
             <Projects />
             <Skills />
             <Footer />

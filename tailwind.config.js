@@ -1,8 +1,17 @@
 import react from '@vitejs/plugin-react';
 export default {
 	darkMode: ['class'],
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-	plugins: [react(), require('tailwindcss-animate')],
+	content: [
+		'./index.html',
+		'./src/**/*.{js,ts,jsx,tsx}',
+		'./node_modules/flowbite/**/*.js',         // ← Flowbite 本体
+		'./node_modules/flowbite-react/**/*.js',   // ← Flowbite React
+	],
+	plugins: [
+		react(),
+		require('tailwindcss-animate'),
+		require('flowbite/plugin'),
+	],
 	theme: {
 		extend: {
 			colors: {
