@@ -53,7 +53,7 @@ const Projects = () => {
                 </div>
                 <div className="grid md:grid-cols-3 gap-6 mt-8">
                     <ProjectCard
-                        title="notion-clone"
+                        title="メモアプリ (Notionクローン)"
                         desc="Notion風のUIを持つメモアプリ。（クリックで画面遷移）"
                         stack={["React", "TypeScript", "Vercel", "Supabase", "Tailwind", "Node.js"]}
                         link="/signin"
