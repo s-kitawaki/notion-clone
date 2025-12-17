@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Container, Section, Chapter } from "./Common/BaseUI";
 import Thumbnail1 from '/notion-clone_photo.png';   // サムネイルパス
+import Thumbnail2 from '/tennis-club_photo.png';
 
 /**
  * ProjectCardコンポーネント
@@ -70,6 +71,12 @@ const Projects = () => {
                         stack={["Java", "Maven", "JSP", "Oracle DB", "JSP", "JavaScript"]}
                         link="/portfolio"
                         thumbnail="" />
+                    <ProjectCard
+                        title="業務管理システム（自作）"
+                        desc="テニススクールの業務管理を想定してシステム開発しました。"
+                        stack={["React", "TypeScript", "Vercel", "Supabase", "Node.js"]}
+                        link="https://tennis-club-sigma.vercel.app/home"
+                        thumbnail={Thumbnail2} />
                 </div>
             </Container>
         </Section>
